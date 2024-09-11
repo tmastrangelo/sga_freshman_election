@@ -1,11 +1,19 @@
-// Simple confetti effect on page load
 document.addEventListener('DOMContentLoaded', function() {
     const confettiElement = document.querySelector('.confetti');
-    for (let i = 0; i < 150; i++) {
+    const numConfetti = 100;
+
+    for (let i = 0; i < numConfetti; i++) {
         const confettiPiece = document.createElement('div');
         confettiPiece.classList.add('confetti-piece');
-        confettiPiece.style.left = Math.random() * 100 + 'vw';
+        
+        // Randomize confetti starting position at bottom corners
+        confettiPiece.style.left = (Math.random() > 0.5 ? 'calc(100% - ' : '') + Math.random() * 50 + 'px)';
+        confettiPiece.style.bottom = '0';
+        
+        // Randomize animation duration and size
         confettiPiece.style.animationDuration = Math.random() * 3 + 2 + 's';
+        confettiPiece.style.width = confettiPiece.style.height = Math.random() * 10 + 'px';
+        
         confettiElement.appendChild(confettiPiece);
     }
 });

@@ -16,13 +16,12 @@ h1 {
 }
 
 .profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Makes it circular */
-    object-fit: cover; /* Ensures the image fits within the square and crops excess */
+    width: 250px; /* Adjust to your preferred width */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: cover; /* Ensure it fills the container */
     display: block;
-    margin: 0 auto;
-    border: 2px solid #ccc; /* Optional border */
+    margin: 0 auto; /* Centers the image */
+    border: 2px solid #ccc; /* Optional: add a border if you'd like */
 }
 
 .btn {
@@ -40,13 +39,44 @@ p {
 }
 
 .confetti {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 1;
     pointer-events: none;
     overflow: hidden;
-    background-color: transparent;
+    z-index: 1;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffcc00; /* Color for the confetti */
+    animation: confetti-animation 3s ease-out infinite;
+}
+
+@keyframes confetti-animation {
+    0% {
+        opacity: 1;
+        transform: translateY(100vh) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20vh) rotate(360deg);
+    }
+}
+
+.voting-title {
+    font-size: 2.5rem;
+    color: #ff5733;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    background: linear-gradient(45deg, #f06, #ffba00);
+    -webkit-background-clip: text;
+    color: transparent;
 }
