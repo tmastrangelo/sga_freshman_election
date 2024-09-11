@@ -51,20 +51,20 @@ p {
 
 .confetti-piece {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #ffcc00; /* Color for the confetti */
-    animation: confetti-animation 3s ease-out infinite;
+    width: 8px;
+    height: 14px;
+    background-color: #ffcc00; /* Change this to random colors if needed */
+    animation: confetti-animation 3s ease-out forwards;
 }
 
 @keyframes confetti-animation {
     0% {
-        opacity: 1;
         transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
     }
     100% {
+        transform: translateY(-20vh) rotate(720deg); /* Rotates as it moves */
         opacity: 0;
-        transform: translateY(-20vh) rotate(360deg);
     }
 }
 
@@ -77,6 +77,8 @@ p {
     letter-spacing: 3px;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     background: linear-gradient(45deg, #f06, #ffba00);
-    -webkit-background-clip: text;
-    color: transparent;
+    -webkit-background-clip: text; /* For Chrome, Safari */
+    -moz-background-clip: text; /* For Firefox */
+    background-clip: text;
+    color: transparent; /* Ensures the gradient fills the text */
 }
